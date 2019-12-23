@@ -1,0 +1,580 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum, multicol, amsmath}
+
+\title{CPMK 3}
+
+\author{Fakhri Ilham P.(18523060) & Muh. Ramadhana Dwi Wahyunan (18523091) }
+\date{December 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Linear Regression}
+\begin{align*}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$x_{i}$ & $y_{i}$ & $xy$ & $x_{i}^2$ & $y'$ & $(y_{i}-y'_{i})^2$   \\
+\hline
+$$ 1     & -1.4   & -1.4     & 1        &-0,2490        &1,3248$$\\
+$$ 2     & -3.3   & -6.6     & 4        &-3,0315        &0,0720$$ \\
+$$ 3     & -6.2   & -18.6    & 9        &-5,8139        &0,1490$$\\
+$$ 4     & -7.3   & -29.2    & 16       &-8,5963        &1,6803$$ \\
+$$ 5     & -11.1  & -55.5    & 25       &-11,3787       &0,0776$$\\
+$$ 6     & -12.3  & -73.8    & 36       &-14,1612       &3,4640$$ \\
+$$ 7     & -16.8  & -117.6   & 49       &-16,9436       &0,0206$$ \\
+$$ 8     & -20.2  & -161.6   & 64       &-19,7260       &0,2246$$ \\
+$$ 9     & -23.4  & -210.6   & 81       &-22,5084       &0,7949$$ \\
+$$ 10    & -25.7  & -257     & 100      &-25,2909       &0,1673$$ \\
+\hline
+\end{tabular}
+\end{align*}
+
+\begin{align*}
+    a = \frac{n.\sum_{i=1}^{n}x_{i}y_{i} - \sum_{i=1}^{n}x_{i} . \sum_{i=1}^{n}y_{i}}{n.\sum_{i=1}^{n}x_{i}^2 - \left(\sum_{i=1}^{n}x_{i}\right)^2}
+\end{align*}
+\begin{align*}
+    b = \frac{1}{n}\left(\sum_{i=1}^{n}y_{i} - a . \sum_{i=1}^{n}x_{i} \right)
+\end{align*} \
+\paragraph{Answer :}
+\begin{enumerate}
+    \item
+        \begin{align*}
+            a &= \frac{10(-931,9) - 55(-127,7)}{10(385) - 55^2}\\\
+            &= \frac{-9319 + 7023,5}{3850 - 3025}\\\
+            &= \frac{-2295,5}{825}\\\
+            &= \frac{91,82}{33}
+        \end{align*}
+    \begin{align*}
+        y &= ax + b\\
+        y &= -\frac{91,82}{33}x + \frac{83,6}{33}
+    \end{align*}\
+    \item
+        \begin{align*}
+            E = f &= \sum_{i}^{m}(y_{i}-y_{i}')^2\\
+            &= 7,9751
+        \end{align*}
+\end{enumerate}
+
+\section{Linear Regression}
+    \begin{align*}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $i$ & $x_{i}$ & $y_{i}$ & $x_{i}^2$ & $x_{i}^3$ & $x_{i}^4$ & $x_{i}^5$ & $x_{i}^6$ & $x_{i}.y_{i}$ & $x_{i}^2.y_{i}$ &$x_{i}^3.y_{i}$ \\
+    \hline
+     $$ 1     & 1    & 11    & 1     & 1         & 1         & 1             & 4096          & 11      & 11      & 11     $$\\
+    $$ 2     & 4    & 15    & 16    & 64        & 256       & 1024          & 14096         & 60      & 240     & 960     $$ \\
+    $$ 3     & 5    & 2     & 25    & 125       & 625       & 3125          & 15625         & 10      & 50      & 250     $$\\
+    $$ 4     & 7    & 5     & 49    & 343       & 2401      & 16807         & 117649        & 35      & 245     & 1715     $$ \\
+    $$ 5     & 8    & 11    & 64    & 512       & 4096      & 32768         & 262144        & 88      & 704     & 5632     $$\\
+    $$ 6     & 9    & 17    & 81    & 729       & 6561      & 59049         & 531441        & 153     & 1377    & 12393     $$ \\
+    $$ 7     & 10   & 15    & 100   & 1000      & 10000     & 100000        & 1000000       & 150     & 1500    & 15000     $$ \\
+    $$ 8     & 13   & 20    & 169   & 2197      & 28561     & 371293        & 4826809       & 260     & 3380    & 43940     $$ \\
+    $$ 9     & 15   & 20    & 225   & 3375      & 50625     & 759375        & 11390625      & 300     & 4500    & 67500     $$ \\
+    $$ 10    & 18   & 14    & 324   & 5832      & 104976    & 1889568       & 34012224      & 252     & 4536    & 81648     $$ \\
+    $$ 11    & 19   & 13    & 361   & 6859      & 130321    & 2476099       & 47045881      & 247     & 4693    & 89167     $$ \\
+    $$ 12    & 21   & 14    & 441   & 9261      & 194481    & 4084101       & 85766121      & 294     & 6174    & 129654     $$ \\
+    $$ 13    & 24   & 5     & 576   & 13824     & 331776    & 7962624       & 191102976     & 120     & 2880    & 69120     $$ \\
+    $$ 14    & 26   & 20    & 676   & 17576     & 456976    & 11881376      & 308915776     & 520     & 13520   & 351520     $$ \\
+    $$ 15    & 29   & 19    & 841   & 24389     & 707281    & 20511149      & 594823321     & 551     & 15979   & 463391      $$ \\
+    \hline
+    \end{tabular}
+    \end{align*}
+   
+    Sehingga : \\\\
+    \begin{multicols}{2}
+        n = 15 \\\\
+        \sum(x_{i}) = 209 \\\\
+        \sum(y_{i}) = 201 \\\\
+        \sum(x_{i}^2) = 3949 \\\\
+        \sum(x_{i}^3) = 86087 \\\\
+        \sum(x_{i}^4) = 2028937 \\\\
+        \sum(x_{i}^5) = 47919869 \\\\
+        \sum(x_{i}^6) = 1279814689 \\\\
+        \sum(x_{i}.y_{i}) = 3051 \\\\
+        \sum(x_{i}^2.y_{i}) = 59789 \\\\
+        \sum(x_{i}^3.y_{i}) = 1331901 \\\\
+    \end{multicols}
+   
+    \paragraph{Answer :}
+    \begin{enumerate}
+        \item
+            \begin{align*}
+                -------- (1a) --------
+            \end{align*}
+            \begin{align*}
+                \begin{bmatrix}
+                    n & \sum(x_{i}) & \sum(x_{i}^2) \\
+                    \sum(x_{i}) & \sum(x_{i}^2) & \sum(x_{i}^3) \\
+                    \sum(x_{i}^2) & \sum(x_{i}^3) & \sum(x_{i}^4)
+                \end{bmatrix}
+                \begin{bmatrix}
+                    a_{0} \\
+                    a_{1} \\
+                    a_{2}
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    \sum(y_{i}) \\
+                    \sum(x_{i}.y_{i}) \\
+                    \sum(x_{i}^2.y_{i})
+                \end{bmatrix}
+            \end{align*}
+           
+            \begin{align*}
+               \begin{bmatrix}
+                    15 & 209 & 3949 \\
+                    209 & 3949 & 86087 \\
+                    3949 & 86087 & 2028937
+                \end{bmatrix}
+                \begin{bmatrix}
+                    a_{0} \\
+                    a_{1} \\
+                    a_{2}
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    201 \\
+                    3051 \\
+                    59789
+                \end{bmatrix}
+            \end{align*}
+            \begin{align*}
+                \begin{bmatrix}
+                    a_{0} \\
+                    a_{1} \\
+                    a_{2}
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    8.382 \\
+                    0.562 \\
+                    -0.010
+                \end{bmatrix}
+            \end{align*}
+            \begin{align*}
+                y = a_{0} + a_{1}(x) + a_{2}(x^2) \\
+                y = 8.382 + 0.562(x) - 0.010(x^2) \\
+                y = - 0.010(x^2) + 0.562(x) + 8.382 \\
+            \end{align*}
+            \begin{align*}
+                -------- (1b) --------
+            \end{align*}
+            \begin{align*}
+                \begin{bmatrix}
+                    n               & \sum(x_{i})   & \sum(x_{i}^2) & \sum(x_{i}^3) \\
+                    \sum(x_{i})     & \sum(x_{i}^2) & \sum(x_{i}^3) & \sum(x_{i}^4) \\
+                    \sum(x_{i}^2)   & \sum(x_{i}^3) & \sum(x_{i}^4) & \sum(x_{i}^5) \\
+                    \sum(x_{i}^3)   & \sum(x_{i}^4) & \sum(x_{i}^5) & \sum(x_{i}^6)
+                \end{bmatrix}
+                \begin{bmatrix}
+                    a_{0} \\
+                    a_{1} \\
+                    a_{2} \\
+                    a_{3}
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    \sum(y_{i}) \\
+                    \sum(x_{i}.y_{i}) \\
+                    \sum(x_{i}^2.y_{i}) \\
+                    \sum(x_{i}^3.y_{i})
+                \end{bmatrix}
+            \end{align*}
+           
+            \begin{align*}
+               \begin{bmatrix}
+                    15 & 209 & 3949 & 86087 \\
+                    209 & 3949 & 86087 & 2028937 \\
+                    3949 & 86087 & 2028937 & 47919869 \\
+                    86087 & 2028937 & 47919869 & 1279814689
+                \end{bmatrix}
+                \begin{bmatrix}
+                    a_{0} \\
+                    a_{1} \\
+                    a_{2} \\
+                    a_{3}
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    201 \\
+                    3051 \\
+                    59789 \\
+                    1331901
+                \end{bmatrix}
+            \end{align*}
+            \begin{align*}
+                \begin{bmatrix}
+                    a_{0} \\
+                    a_{1} \\
+                    a_{2} \\
+                    a_{3}
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    7.743 \\
+                    0.649 \\
+                    -0.009 \\
+                    -0.0001
+                \end{bmatrix}
+            \end{align*}
+            \begin{align*}
+                y = a_{0} + a_{1}(x) + a_{2}(x^2) + a_{3}(x^3) \\
+                y = 7.743 + 0.649(x) - 0.009 (x^2) - 0.0001(x^3) \\
+                y = - 0.0001(x^3) - 0.009(x^2) + 0.649(x) + 7.743 \\
+            \end{align*}
+           
+           
+           
+           
+        \item
+            \begin{align*}
+                -------- (2a) --------
+            \end{align*}
+            \begin{align*}
+                x = 3
+            \end{align*}
+            \begin{align*}
+                y = - 0.010(x^2) + 0.562(x) + 8.382 \\
+                y = - 0.010(3^2) + 0.562(3) + 8.382 \\
+                y = 9.978 \\
+            \end{align*}
+            \begin{align*}
+                x = 6
+            \end{align*}
+            \begin{align*}
+                y = - 0.010(x^2) + 0.562(x) + 8.382 \\
+                y = - 0.010(6^2) + 0.562(6) + 8.382 \\
+                y = 11.394 \\
+            \end{align*}
+           
+            \begin{align*}
+                -------- (2b) --------
+            \end{align*}
+            \begin{align*}
+                x = 3
+            \end{align*}
+            \begin{align*}
+                y = - 0.0001(x^3) - 0.009(x^2) + 0.649(x) + 7.743 \\
+                y = - 0.0001(3^3) - 0.009(3^2) + 0.649(3) + 7.743 \\
+                y = 9.6063
+            \end{align*}
+            \begin{align*}
+                x = 6
+            \end{align*}
+            \begin{align*}
+                y = - 0.0001(x^3) - 0.009(x^2) + 0.649(x) + 7.743 \\
+                y = - 0.0001(6^3) - 0.009(6^2) + 0.649(6) + 7.743 \\
+                y = 11.2914
+            \end{align*}
+    \end{enumerate}
+
+\section {Root finding}
+\paragraph{Answer :}
+\begin{enumerate}
+    \item Use the Bisection method to find solutions accurate to within 10−5 for the following problems.
+    \begin{enumerate}
+        \item $2xcos(2x)-(x + 1)2 = 0$   for $-3 \leq x \leq -2$
+        \begin{align*}
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                $n$ & $a$ & $f(a)$ & $b$ & $f(b)$ & $p=\frac{a+b}{2}$ & $f(p)$ &update   \\
+                \hline
+                $$ 1     &-3         & -9,76102     & -2            &1,61457       &-2,5         &-3,66831    &a=p$$\\
+                $$ 2     & -2,5      & -3,66831     & -2            &1,61457       &-2,25        &-0,61392    &a=p$$\\
+                $$ 3     & -2,25     & -0,61392     & -2            &1,61457       &-2,125       &0,63025     &b=p$$\\
+                $$ 4     & -2,25     & -0,28084     & -2,125        &0,63025       &-2,1875      &0,03808     &b=p$$ \\
+                $$ 5     & -2,25     & -0,11956     & -2,1875       &0,03808       &-2,21875     &-0,28084    &a=p$$\\
+                $$ 6     & -2,21875  & -0,04028     & -2,1875       &0,03808       &-2,20312     &-0,11956    &a=p$$ \\
+                $$ 7     & -2,20312  & -0,00099     & -2,1875       &0,03808       &-2,19531     &-0,04028    &a=p$$ \\
+                $$ 8     & -2,19531  & -0,00099     & -2,1875       &0,03808       &-2,19141     &-0,00099    &a=p$$ \\
+                $$ 9     & -2,19141  & -0,00099     & -2,1875       &0,03808       &-2,18945     &0,01857     &b=p$$ \\
+                $$ 10    & -2,19141  & -0,00099     & -2,18945      &0,01857       &-2,19043     &0,0088      &b=p$$ \\
+                $$ 11    & -2,19141  & -0,00099     & -2,19043      &0,0088        &-2,19092     &0,00391     &b=p$$ \\
+                $$ 12    & -2,19141  & -0,00099     & -2,19092      &0,00391       &-2,19116     &0,00146     &b=p$$ \\
+                $$ 13    & -2,19141  & -0,00099     & -2,19116      &0,00146       &-2,19128     &0,00024     &b=p$$ \\
+                \hline
+            \end{tabular}
+        \end{align*}
+        akar dari persamaan $2xcos(2x)-(x + 1)2 = 0$   for $−3 \leq x \leq -2$ terdapat pada iterasi ke-13, yaitu -2,19128
+       
+        $2xcos(2x)-(x + 1)2 = 0$   for $−1 \leq x \leq 0$
+        \begin{align*}
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                $n$ & $a$ & $f(a)$ & $b$ & $f(b)$ & $p=\frac{a+b}{2}$ & $f(p)$ &update   \\
+                \hline
+                $$ 1     & -1        & 0,83229     & 0             &-1             &-0,5         &-0,7903     &b=p$$\\
+                $$ 2     & -1        & 0,83229     & -0,5          &-0,7903        &-0,75        &-0,16861    &b=p$$\\
+                $$ 3     & -1        & 0,83229     & -0,75         &-0,16861       &-0,875       &0,29631     &a=p$$\\
+                $$ 4     & -0,875    & 0,29631     & -0,75         &-0,16861       &-0,8125      &0,05288     &a=p$$ \\
+                $$ 5     & -0,8125   & 0,05288     & -0,75         &-0,16861       &-0,78125     &-0,06081    &b=p$$\\
+                $$ 6     & -0,8125   & 0,05288     & -0,78125      &-0,06081       &-0,79688     &-0,00468    &b=p$$ \\
+                $$ 7     & -0,8125   & 0,05288     & -0,79688      &-0,00468       &-0,80469     &0,02393     &a=p$$ \\
+                $$ 8     & -0,80469  & 0,02393     & -0,79688      &-0,00468       &-0,80078     &0,00958     &a=p$$ \\
+                $$ 9     & -0,80078  & 0,00958     & -0,79688      &-0,00468       &-0,79883     &0,00244     &a=p$$ \\
+                $$ 10    & -0,79883  & 0,00244     & -0,79688      &-0,00468       &-0,79785     &-0,00112    &b=p$$ \\
+                $$ 11    & -0,79883  & 0,00244     & -0,79785      &-0,00112       &-0,79834     &0,00066     &a=p$$ \\
+                $$ 12    & -0,79834  & 0,00066     & -0,79785      &-0,00112       &-0,7981      &-0,00023    &b=p$$ \\
+                \hline
+            \end{tabular}
+        \end{align*}
+        akar dari persamaan $2xcos(2x)-(x + 1)2 = 0$   for $−1 \leq x \leq 0$ terdapat pada iterasi ke-12, yaitu -0,7981
+       
+        \item $xcosx-2x^2+3x-1 = 0$   for $0,2 \leq x \leq 0,3$
+        \begin{align*}
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                $n$ & $a$ & $f(a)$ & $b$ & $f(b)$ & $p=\frac{a+b}{2}$ & $f(p)$ &update   \\
+                \hline
+                $$ 1     & 0,2       & -0,28399     & 0,3           &0,0066       &0,25        &-0,13277    &a=p$$\\
+                $$ 2     & 0,25      & -0,13277     & 0,3           &0,0066       &0,275       &-0,06158    &a=p$$\\
+                $$ 3     & 0,275     & -0,06158     & 0,3           &0,0066       &0,2875      &-0,02711    &a=p$$\\
+                $$ 4     & 0,2875    & -0,02711     & 0,3           &0,0066       &0,29375     &-0,01016    &a=p$$ \\
+                $$ 5     & 0,29375   & -0,01016     & 0,3           &0,0066       &0,29688     &-0,00176    &a=p$$\\
+                $$ 6     & 0,29688   & -0,00176     & 0,3           &0,0066       &0,29844     &0,00243     &b=p$$ \\
+                $$ 7     & 0,29688   & -0,00176     & 0,29844       &0,00243      &0,29766     &0,00034     &b=p$$ \\
+                \hline
+            \end{tabular}
+        \end{align*}
+        akar dari persamaan $xcosx-2x^2+3x-1 = 0$   for $0,2 \leq x \leq 0,3$ terdapat pada iterasi ke-7, yaitu 0,29766
+       
+        $xcosx-2x^2+3x-1 = 0$   for $1,2 \leq x \leq 1,3$
+        \begin{align*}
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                $n$ & $a$ & $f(a)$ & $b$ & $f(b)$ & $p=\frac{a+b}{2}$ & $f(p)$ &update   \\
+                \hline
+                $$ 1     & 1,2       & 0,15483     & 1,3           &-0,13225       &1,25        &0,01915     &a=p$$\\
+                $$ 2     & 1,25      & 0,01915     & 1,3           &-0,13225       &1,275       &-0,05459    &b=p$$\\
+                $$ 3     & 1,25      & 0,01915     & 1,2           &-0,05459       &1,2675      &-0,01722    &b=p$$\\
+                $$ 4     & 1,25      & 0,01915     & 1,262         &-0,01722       &1,25625     &0,00109     &a=p$$ \\
+                $$ 5     & 1,25625   & 0,00109     & 1,2625        &-0,01722       &1,25937     &-0,00804    &b=p$$\\
+                $$ 6     & 1,25625   & 0,00109     & 1,25937       &-0,00804       &1,25781     &-0,00347    &b=p$$ \\
+                $$ 7     & 1,25625   & 0,00109     & 1,25781       &-0,00347       &1,25703     &-0,00119    &b=p$$ \\
+                $$ 8     & 1,25625   & 0,00109     & 1,25703       &-0,00119       &1,25664     &-0,00005    &b=p$$ \\
+                \hline
+            \end{tabular}
+        \end{align*}
+        akar dari persamaan $xcosx-2x^2+3x-1 = 0$   for $1,2 \leq x \leq 1,3$ terdapat pada iterasi ke-8, yaitu 1,25644
+       
+        \item $3x-e^x = 0$   for $1 \leq x \leq 2$
+        \begin{align*}
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                $n$ & $a$ & $f(a)$ & $b$ & $f(b)$ & $p=\frac{a+b}{2}$ & $f(p)$ &update   \\
+                \hline
+                $$ 1     & 1         & 0,28172     & 2             &-1,38906       &1,5         &0,01831     &a=p$$\\
+                $$ 2     & 1,5       & 0,01831     & 2             &-1,38906       &1,75        &-0,5046     &b=p$$\\
+                $$ 3     & 1,5       & 0,01831     & 1,75          &-0,5046        &1,625       &-0,20342    &b=p$$\\
+                $$ 4     & 1,5       & 0,01831     & 1,625         &-0,20342       &1,5625      &-0,08323    &b=p$$ \\
+                $$ 5     & 1,5       & 0,01831     & 1,5625        &-0,08323       &1,53125     &-0,0302     &b=p$$\\
+                $$ 6     & 1,5       & 0,01831     & 1,53125       &-0,0302        &1,51562     &-0,00539    &b=p$$ \\
+                $$ 7     & 1,5       & 0,01831     & 1,51562       &-0,00539       &1,50781     &0,0066      &a=p$$ \\
+                $$ 8     & 1,50781   & 0,0066      & 1,51562       &-0,00539       &1,51172     &0,00064     &a=p$$ \\
+                $$ 9     & 1,51172   & 0,00064     & 1,51562       &-0,00539       &1,51367     &-0,00237    &b=p$$ \\
+                $$ 10    & 1,51172   & 0,00064     & 1,51367       &-0,00237       &1,5127      &-0,00086    &b=p$$ \\
+                $$ 11    & 1,51172   & 0,00064     & 1,5127        &-0,00086       &1,51221     &-0,00011    &b=p$$ \\
+                \hline
+            \end{tabular}
+        \end{align*}
+        akar dari persamaan $3x-e^x = 0$   for $1 \leq x \leq 2$ terdapat pada iterasi ke-11, yaitu 1,51221
+    \end{enumerate}
+   
+    \item Redo the previous question using Newton’s method (use derivative calculator for simplicity:
+         \begin{enumerate}
+             \item $2xcos(2x)$$-$$(x + 1)$$^2$$= 0$ for $p_{0} = $$-3$  and $p_{0} =$ $-1$ \\  
+             $f\;'(x) = $$-2 (2xsin(2x) - cos (2x) + x + 1) = 0$
+             \begin{itemize}
+                 \item $p_{0} = -3$
+                 \begin{center}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                        Step & $p_{0}$ & $f(p_{0})$& $f\;'(p_{0})$ & $p_{1}$ & $f(p_{1})$   \\
+                        \hline
+                        1 & -3.00000 & -9.761022 & 9.27333 & -1.947409 & 1.943635 \\
+                        \hline
+                        2 & -1.947409 & 1.943635 & 5.76391 & -2.284616 & -0.998355 \\
+                        \hline
+                        3 & -2.284616 & -0.998355 & 11.32888 & -2.196491 & -0.052183 \\
+                        \hline
+                        4 & -2.196491 & -0.052183 & 10.10657 & -2.191328 & -0.000202 \\
+                        \hline
+                        5 & -2.191328 & -0.000202 & 10.02819 & -2.191308 & -0.000000 \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+               Root is : -2.191308\\
+             \end{itemize}
+             \begin{itemize}
+                 \item $p_{0} = -1$
+                 \begin{center}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                         Step & $p_{0}$ & $f(p_{0})$& $f\;'(p_{0})$ & $p_{1}$ & $f(p_{1})$   \\
+                        \hline
+                        1 & -1.00000 & 0.832294 & -4.46948 & -0.813783 & 0.057670 \\
+                        \hline
+                        2 & -0.813783 & 0.057670 & -3.7358 & -0.057670 & 0.000678 \\
+                        \hline
+                        3 & -0.798346 & 0.000678 & -3.64741 & -0.798160 & -0.000000 \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+                Root is : -0.798160\\
+             \end{itemize}
+             \item $xcosx - 2x$$^2$$ + 3x - 1 = 0$ for $p0 = 0.2$ and $p_{0} = 1.2 $ \\
+             $f\;'(x) = $$-xsin(x) + cos(x) - 4x + 3 = 0$
+           
+             \begin{itemize}
+                 \item $p_{0} = 0.2$
+                 \begin{center}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                         Step & $p_{0}$ & $f(p_{0})$& $f\;'(p_{0})$ & $p_{1}$ & $f(p_{1})$ \\
+                        \hline
+                        1 & 0.200000 & -0.283987 & 3.14033 & 0.290432 & -0.019137 \\
+                        \hline
+                        2 & 0.290432 & -0.019137 & 2.71322 & 0.297485 & -0.000121 \\
+                        \hline
+                        3 & 0.297485 & -0.000121 & 2.67894 & 0.297530 & -0.000000 \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+                Root is :  0.297530 \\
+             \end{itemize}
+             \begin{itemize}
+                 \item $p_{0} = 1.2$
+                 \begin{center}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                         Step & $p_{0}$ & $f(p_{0})$& $f\;'(p_{0})$ & $p_{1}$ & $f(p_{1})$  \\
+                        \hline
+                        1 & 1.200000 & 0.154829 & -2.55609 & 1.260573 & -0.011552 \\
+                        \hline
+                        2 & 1.260573 & -0.011552 & -2.93742 & 1.256640 & -0.000049 \\
+                        \hline
+                        3 & 1.256640 & -0.000049 & -2.91268 & 1.256623 & -0.000000 \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+                Root is :  1.256623 \\
+             \end{itemize}
+             \item $3x - e^x $ for $p_{0} = 1$ \\
+             $f\;'(x) = 3 - e^x$
+            \begin{itemize}
+                \item $p_{0} = 1$
+            \end{itemize}
+             \begin{center}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                         Step & $p_{0}$ & $f(p_{0})$& $f\;'(p_{0})$ & $p_{1}$ & $f(p_{1})$  \\
+                        \hline
+                        1 & 1.000000 & 0.281718 & 0.28172 & 0.000000 & -1.000000 \\
+                        \hline
+                        2 & 0.000000 & -1.000000 & 2.00000 & 0.500000 & -0.148721 \\
+                        \hline
+                        3 & 0.500000 & -0.148721 & 1.35128 & 0.610060 & -0.010362 \\
+                        \hline
+                        4 & 0.610060 & -0.010362 & 1.15946 & 0.618997 & -0.000074 \\
+                        \hline
+                        5 & 0.618997 & -0.000074 & 1.14294 & 0.619061 & -0.000000 \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+                Root is : 0.619061
+         \end{enumerate}
+         
+    \item Compare the number of iterations needed between Bisection and Newton’s Method. Justify which one is more efficient based on your comparison.
+    Answer:\\
+    Bisection method membutuhkan banyak iterasi untuk menemukan akar dari persamaan di atas, sedangkan Newton's Method membutuhkan iterasi yang lebih sedikit dibandingkan dengan Bisection Method untuk menemukan akar dari persamaan di atas. Maka dari itu Newton's Method lebih efisien karena menggunakan lebih sedikit iterasi dibandingkan dengan Bisection Method sehingga lebih cepat dalam menemukan akar dari persamaan di atas.
+\end{enumerate}
+       
+       
+\section{Differentiation & Integration}
+\paragraph{Answer :}
+\begin{enumerate}
+    \item
+        \begin{align*}
+     f(x) &= x^2 * e^x   at  x_0 = 2  and  h = 0.05  \\
+     f'(x_0) &= \frac{f(x_0 + h) - f(x_0)}{h}  \\
+     f'(x_0) &= \frac{f(2 + 0.05) - f(2)}{0.05}  \\
+     f'(x_0) &= \frac{f(2.05) - f(2)}{0.05}  \\
+     f'(x_0) &= \frac{((2.05^2) * e^2.05) - (2^2 * e^2)}{0.05}  \\
+     f'(x_0) &= \frac{32.644604399 - 29.556224396}{0.05}  \\
+     f'(x_0) &= 61.76760006  \\
+   \end{align*}
+   
+    \item
+    \begin{align*}
+    \begin{tabular}{|c|c|}
+    \hline
+    $$ x & f(x)  $$ \\
+    \hline
+    $$ 0.2 & 0.9798652  $$ \\
+    $$ 0.4 & 0.9177710  $$ \\
+    $$ 0.6 & 0.808038   $$ \\
+    $$ 0.8 & 0.6386093  $$ \\
+    $$ 1.0 & 0.3843735  $$ \\
+    \hline
+    \end{tabular}
+    \end{align*}
+
+    \begin{align*}
+         h midpoint = 0,2 f'(0,4) && h endpoint =-0,2 f'(0,6)
+    \end{align*}
+       
+    \begin{align*}      
+        {midpoint}\\\\\
+         A. f'(X_o) &=\frac{f(0,4+0,2)-f(0,4-0,2)}{2(0,2)}\\\\
+        &=\frac{0,6-0,2}{0,4}\\\\
+        &=\frac{0,808038-0,9798652}{0,4}\\\\
+        &= 0,429568\\\\
+     \end{align*}
+     
+     \begin{align*}
+          B. f'(x_o)&=\frac{f(0,6+0,2)-f(0,6-0,2)}{(2(0,2)}\\\\
+        &= \frac{f(0,8-0,4}{0,4}\\\\
+        &= \frac{0,6386093-0,9177710}{0,4}\\\\
+        &=0,69790425
+     \end{align*}
+     
+    \begin{align*}
+        {endpoint}\\\\\
+         A. f'(x_o)&=\frac{f(0,4+(-0,2)-f(0,4-(-0,2)}{2(0,2}\\\\
+        f'(x_o)&=\frac{0,2-0,6}{0,4}\\\\
+        f'(x_o)&=\frac{0,9798652-0,808038}{0,4}\\\\
+        &=0,429568\\\\\\
+    \end{align*}
+    \begin{align*}
+        f'(x_o)&=\frac{f(0,6+(-0,2)-f(0,6-(-0,2)}{-0,4}\\\\
+        f'(x_o)&=\frac{0,4-0,8}{-0,4}\\\\
+        f'(x_o)&=\frac{0,9177710-0,6386093}{-0,4}\\\\
+        &=0,69790425\\\\\\
+    \end{align*}
+   
+   
+   \item  
+   \begin{align*}
+         \int_{a}^{b} (1+x^2)\,dx\\\\
+    {Trapezoidal Rule}\\\\
+    \int_{a}^{b} fx\,dx \approx& {\frac{h}{2}[f(x_o) + f(x_1)]}\\\\
+    \approx & {\frac{b-a}{2}[f(a) + f(b)]}\\\\
+    \approx & {\frac{b-a}{2}[(1+(a^2)) + (1+b^2)]}\\\\
+    \approx &{\frac{b-a}{2}[2+a^2+b^2]}\\\\\\
+   \end{align*}
+   
+    \begin{align*}
+    {Simpon's Rule}\\\\
+       \int_{a}^{b} fx\,dx \approx& {\frac{h}{3}[f(x_o) + 4f(x_1)+f(x_2)]}\\\\
+       \approx &{\frac{b-a}{2}{3}[(1+0^2)+4(1+1^2)+(1+2^2)]}\\\\
+       \approx &{\frac{b-a}{2}{3}[1+8+5]}\\\\
+       \approx &{\frac{b-a}{2}{3}[14]}\\\\
+    \end{align*}
+    \end{enumerate}
+
+
+\end{document}
+\documentclass{article}
+\usepackage[utf8]{inputenc}
